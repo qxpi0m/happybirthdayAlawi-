@@ -1,0 +1,208 @@
+/* الأنماط العامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* الشرائح */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+    z-index: 10;
+}
+
+/* المحتوى */
+h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 3px 3px 0 #ff69b4, 6px 6px 0 rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+p {
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    max-width: 600px;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* الأزرار */
+button, .btn-link {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+    transition: all 0.3s;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn-link:hover {
+    transform: scale(1.1);
+    background: #ff1493;
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.7);
+}
+
+/* الخنازير المتساقطة */
+.pig {
+    position: absolute;
+    top: -100px;
+    font-size: 3rem;
+    user-select: none;
+    pointer-events: none;
+    z-index: 5;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* المظروف */
+.envelope-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #f9e0c7;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.envelope-container:hover {
+    transform: scale(1.05);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #e8c9a0;
+    transform-origin: top;
+    transition: transform 0.8s;
+    z-index: 2;
+}
+
+.envelope-container.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #f9e0c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #8b5a2b;
+    z-index: 1;
+}
+
+.letter {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    height: 90%;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.8s;
+    z-index: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.envelope-container.open .letter {
+    transform: translateY(0);
+    z-index: 3;
+}
+
+.letter img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff69b4;
+    margin-bottom: 10px;
+}
+
+.letter p {
+    color: #333;
+    font-size: 1rem;
+    text-shadow: none;
+    margin: 5px 0;
+}
+
+/* رموز الخنازير */
+.pig-emojis {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1rem; }
+    .envelope-container { width: 250px; height: 170px; }
+}

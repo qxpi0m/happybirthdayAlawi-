@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد سعيد يا ألافي! 🐷</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الشريحة الأولى: الترحيب -->
+    <div class="slide active" id="slide1">
+        <h1>عيد ميلاد سعيد يا ألافي! 🐷🎂</h1>
+        <p>اضغط على الزر لتتساقط الخنازير من السماء! 🐖💖</p>
+        <div class="pig-emojis">🐷 🐖 🐽 🐖 🐷</div>
+        <button onclick="startPigRain()">أطلق الخنازير! 🐷</button>
+    </div>
+
+    <!-- الشريحة الثانية: التهنئة -->
+    <div class="slide" id="slide2">
+        <h1>إلى خنزيري الصغير المحبوب 🐽</h1>
+        <div class="pig-emojis">🐖💕🐖</div>
+        <p>عيد ميلاد سعيد يا ألافي العزيز، أتمنى لك كل الخير، ويوم ميلادك هو أهم يوم في السنة بالنسبة لي. في هذا اليوم وُلد أروع وأجمل شاب، وأنا سعيدة جدًا بذلك.</p>
+        <p>أتمنى لو أقبّلك على شفتيك وأعانقك بقوة، لكن المسافة لا تسمح لي بذلك😢 لذلك أرسل لك قبلة طائرة 😘. يومًا ما سيتحقق هذا في الواقع بالتأكيد.</p>
+        <button onclick="nextSlide(3)">التالي 🐷➡️</button>
+    </div>
+
+    <!-- الشريحة الثالثة: الرابط إلى المظروف -->
+    <div class="slide" id="slide3">
+        <h1>لديك رسالة! 💌</h1>
+        <p>هنا شيء مميز مخبأ...</p>
+        <p style="font-size: 2rem;">🐷💌🐷</p>
+        <button class="btn-link" onclick="nextSlide(4)">افتح المظروف 💌</button>
+    </div>
+
+    <!-- الشريحة الرابعة: المظروف -->
+    <div class="slide" id="slide4">
+        <h1>اضغط على المظروف! 🐽</h1>
+        <div class="envelope-container" id="envelope" onclick="openEnvelope()">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">🐷💌</div>
+            <div class="letter" id="letter">
+                <img src="pig1.jpg" alt="خنزير ١">
+                <img src="pig2.jpg" alt="خنزير ٢">
+                <p><strong>هذا نحن معًا! 🐷💕🐖</strong></p>
+                <p>خنزيران يحبان بعضهما البعض رغم المسافة. أنت أحب خنزير صغير في العالم! 😘🐽</p>
+            </div>
+        </div>
+        <button onclick="location.reload()">ابدأ من جديد 🔄</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
